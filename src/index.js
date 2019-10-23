@@ -1,5 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import store from './store';
+import { fetchQuizzes } from './actions/quizActionCreator';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+store.subscribe(() => {
+  console.log('Stateの状態');
+  console.log(store.getState());
+  console.log('====================');
+});
+
+store.dispatch( fetchQuizzes() );
+
